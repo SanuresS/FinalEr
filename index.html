@@ -593,6 +593,49 @@
             margin-bottom: 10px;
         }
 
+        /* ===== CAREER SECTION (glass cards) ===== */
+        .career-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 100px;
+            padding-bottom: 40px;
+        }
+        .glass-card {
+            background: rgba(28, 31, 39, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: var(--transition);
+        }
+        .glass-card:hover {
+            border-color: var(--border-hover);
+            background: rgba(35, 39, 48, 0.7);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-card);
+        }
+        .glass-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .glass-card h3 i {
+            color: var(--accent-red);
+            font-size: 18px;
+        }
+        .glass-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -647,6 +690,7 @@
                 <li><a href="#workflow">Этапы</a></li>
                 <li><a href="#process">Процесс</a></li>
                 <li><a href="#prospects">Перспективы</a></li>
+                <li><a href="#career">Карьера</a></li>
             </ul>
             <button class="nav-burger" id="navBurger" aria-label="Меню">
                 <i class="fas fa-bars"></i>
@@ -672,7 +716,7 @@
                 <a href="#about" class="btn-primary">
                     Узнать больше <i class="fas fa-arrow-down"></i>
                 </a>
-                <a href="career.html" class="btn-secondary">
+                <a href="#career" class="btn-secondary">
                     Как начать карьеру студенту? <i class="fas fa-graduation-cap"></i>
                 </a>
             </div>
@@ -1045,7 +1089,78 @@
 
     <div class="section-divider"></div>
 
-    <!-- ===== 8. ЗАКЛЮЧЕНИЕ ===== -->
+    <!-- ===== 8. КАРЬЕРА СТУДЕНТА ===== -->
+    <section id="career">
+        <div class="container">
+
+            <!-- Hero -->
+            <div class="career-hero">
+                <div class="container" style="text-align:center;">
+                    <div class="fade-in">
+                        <div class="section-label" style="margin:0 auto 20px;">
+                            <i class="fas fa-graduation-cap"></i> Руководство для студентов
+                        </div>
+                    </div>
+                    <h1 class="hero-title fade-in">
+                        Как запустить карьеру<br>в ML со <span class="gradient-text">студенческой скамьи</span>
+                    </h1>
+                    <p class="hero-subtitle fade-in">
+                        Пошаговый план, который поможет тебе начать путь в Machine Learning ещё во время учёбы — от базы до первого оффера.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Timeline -->
+            <div style="padding: 60px 0 80px;">
+                <div class="fade-in">
+                    <div class="section-label"><i class="fas fa-list-ol"></i> Пошаговый план</div>
+                    <h2 class="section-title">Четыре шага к карьере в ML</h2>
+                    <p class="section-subtitle">Каждый шаг — это конкретные действия, которые ты можешь начать прямо сейчас.</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-number">Шаг 1</div>
+                        <div class="glass-card">
+                            <h3><i class="fas fa-book-open"></i> База: Математика и Код</h3>
+                            <p>Не зубри всё подряд. Подтяни линейную алгебру, тервер и уверенно освой Python. Без этого нейросети будут для тебя просто чёрным ящиком.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-number">Шаг 2</div>
+                        <div class="glass-card">
+                            <h3><i class="fas fa-laptop-code"></i> Первые модели и Kaggle</h3>
+                            <p>Переходи к практике как можно раньше. Скачивай готовые датасеты, участвуй в песочницах на Kaggle. Твоя задача — совершить первые ошибки на реальных данных.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-number">Шаг 3</div>
+                        <div class="glass-card">
+                            <h3><i class="fas fa-folder-open"></i> Пет-проекты в портфолио</h3>
+                            <p>Вместо копирования чужих блокнотов сделай свой проект. Например, обучи модель рекомендовать аниме по описанию или предсказывать цены на квартиры в твоём городе. Выложи код на GitHub.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-number">Шаг 4</div>
+                        <div class="glass-card">
+                            <h3><i class="fas fa-handshake"></i> Стажировки и Нетворкинг</h3>
+                            <p>Ищи оплачиваемые стажировки для Junior/Intern позиций в ИТ-компаниях. Ходи на ярмарки вакансий — там можно познакомиться с HR-специалистами и получить оффер прямо во время учёбы.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== 9. ЗАКЛЮЧЕНИЕ ===== -->
     <section id="conclusion">
         <div class="container fade-in">
             <div class="section-label" style="margin:0 auto 20px;"><i class="fas fa-flag-checkered"></i> Заключение</div>
@@ -1081,7 +1196,7 @@
         });
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-            nav-links.classList.remove('open');
+            navLinks.classList.remove('open');
             const icon = burger.querySelector('i');
             icon.classList.add('fa-bars');
             icon.classList.remove('fa-times');
