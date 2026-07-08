@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как начать карьеру студенту — ML-разработчик</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #111318;
+            --bg-secondary: #181b22;
+            --bg-card: #1c1f27;
+            --bg-card-hover: #232730;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-red: #EF4444;
+            --accent-red-dark: #DC2626;
+            --accent-red-light: #F87171;
+            --accent-orange: #F97316;
+            --gradient-main: linear-gradient(135deg, #DC2626, #EF4444);
+            --gradient-text: linear-gradient(135deg, #F87171, #F97316);
+            --border-color: rgba(255,255,255,0.07);
+            --border-hover: rgba(255,255,255,0.18);
+            --shadow-card: 0 4px 24px rgba(0,0,0,0.35);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(.4,0,.2,1);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Grid background */
+        .grid-bg {
+            position: relative;
+            background-color: var(--bg-primary);
+            background-image:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(239,68,68,0.07) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 80% 100%, rgba(249,115,22,0.05) 0%, transparent 50%),
+                linear-gradient(rgba(239,68,68,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(239,68,68,0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 44px 44px, 44px 44px;
+        }
+        .grid-bg::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(239,68,68,0.04) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 80%, rgba(249,115,22,0.03) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .grid-bg > * { position: relative; z-index: 1; }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(17,19,24,0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        nav .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .nav-logo-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+        .nav-logo-text {
+            font-weight: 700; font-size: 15px; color: var(--text-primary);
+        }
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: transparent;
+            transition: var(--transition);
+        }
+        .nav-back:hover {
+            color: var(--text-primary);
+            border-color: var(--border-hover);
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* ===== HERO ===== */
+        .page-hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 100px;
+            padding-bottom: 40px;
+        }
+        .hero-title {
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .gradient-text {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== SECTION ===== */
+        section {
+            padding: 60px 0 80px;
+        }
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-red);
+            margin-bottom: 16px;
+            background: rgba(239,68,68,0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+        .section-title {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            font-size: clamp(15px, 2.5vw, 17px);
+            color: var(--text-secondary);
+            max-width: 700px;
+            line-height: 1.7;
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== GLASS CARDS (timeline) ===== */
+        .timeline {
+            position: relative;
+            margin-top: 48px;
+            padding-left: 32px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-red), var(--accent-orange));
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 36px;
+        }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-dot {
+            position: absolute;
+            left: -32px;
+            top: 2px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 3px solid var(--accent-red);
+            z-index: 2;
+            transition: var(--transition);
+        }
+        .timeline-item:hover .timeline-dot {
+            background: var(--accent-red);
+            box-shadow: 0 0 16px rgba(239,68,68,0.5);
+        }
+        .timeline-number {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-red);
+            margin-bottom: 4px;
+        }
+        .glass-card {
+            background: rgba(28, 31, 39, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 28px 28px 28px 28px;
+            transition: var(--transition);
+        }
+        .glass-card:hover {
+            border-color: var(--border-hover);
+            background: rgba(35, 39, 48, 0.7);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-card);
+        }
+        .glass-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .glass-card h3 i {
+            color: var(--accent-red);
+            font-size: 18px;
+        }
+        .glass-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 32px 0;
+            text-align: center;
+        }
+        footer p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ===== FADE ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== PAGE TRANSITION ===== */
+        .page-wrapper {
+            animation: slideUp 0.6s cubic-bezier(.4,0,.2,1) forwards;
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            section { padding: 50px 0 60px; }
+            .page-hero { padding-top: 80px; }
+        }
+    </style>
+</head>
+<body class="grid-bg">
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="Er.jpg" alt="ЭР Телеком" class="nav-logo-img">
+                <span class="nav-logo-text">ЭР Телеком</span>
+            </a>
+            <a href="index.html" class="nav-back">
+                <i class="fas fa-arrow-left"></i> Назад
+            </a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+
+        <!-- ===== HERO ===== -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="fade-in">
+                    <div class="section-label" style="margin: 0 auto 20px;">
+                        <i class="fas fa-graduation-cap"></i> Руководство для студентов
+                    </div>
+                </div>
+                <h1 class="hero-title fade-in">
+                    Как запустить карьеру<br>в ML со <span class="gradient-text">студенческой скамьи</span>
+                </h1>
+                <p class="hero-subtitle fade-in">
+                    Пошаговый план, который поможет тебе начать путь в Machine Learning ещё во время учёбы — от базы до первого оффера.
+                </p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== TIMELINE ===== -->
+        <section>
+            <div class="container">
+                <div class="fade-in">
+                    <div class="section-label"><i class="fas fa-list-ol"></i> Пошаговый план</div>
+                    <h2 class="section-title">Четыре шага к карьере в ML</h2>
+                    <p class="section-subtitle">Каждый шаг — это конкретные действия, которые ты можешь начать прямо сейчас.</p>
+                </div>
+
+                <div class="timeline">
+                    <!-- Step 1 -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-number">Шаг 1</div>
+                        <div class="glass-card">
+                            <h3><i class="fas fa-book-open"></i> База: Математика и Код</h3>
+                            <p>Не зубри всё подряд. Подтяни линейную алгебру, тервер и уверенно освой Python. Без этого нейросети будут для тебя просто чёрным ящиком.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-number">Шаг 2</div>
+                        <div class="glass-card">
+                            <h3><i class="fas fa-laptop-code"></i> Первые модели и Kaggle</h3>
+                            <p>Переходи к практике как можно раньше. Скачивай готовые датасеты, участвуй в песочницах на Kaggle. Твоя задача — совершить первые ошибки на реальных данных.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-number">Шаг 3</div>
+                        <div class="glass-card">
+                            <h3><i class="fas fa-folder-open"></i> Пет-проекты в портфолио</h3>
+                            <p>Вместо копирования чужих блокнотов сделай свой проект. Например, обучи модель рекомендовать аниме по описанию или предсказывать цены на квартиры в твоём городе. Выложи код на GitHub.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-number">Шаг 4</div>
+                        <div class="glass-card">
+                            <h3><i class="fas fa-handshake"></i> Стажировки и Нетворкинг</h3>
+                            <p>Ищи оплачиваемые стажировки для Junior/Intern позиций в ИТ-компаниях. Ходи на ярмарки вакансий — там можно познакомиться с HR-специалистами и получить оффер прямо во время учёбы.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Профессия ML-разработчик — информационный лендинг. Создано в учебных целях.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== Intersection Observer — fade-in on scroll =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 60);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
